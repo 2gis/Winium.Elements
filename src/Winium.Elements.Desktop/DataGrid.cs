@@ -15,6 +15,10 @@
 
         private const string GetDataGridCell = "getDataGridCell";
 
+        private const string GetDataGridColumnCount = "getDataGridColumnCount";
+
+        private const string GetDataGridRowCount = "getDataGridRowCount";
+
         #endregion
 
         #region Constructors and Destructors
@@ -23,12 +27,46 @@
         {
             CommandInfoRepository.Instance.TryAddCommand(
                 GetDataGridCell,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/cell/{row}/{column}"));
+                new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/cell/{row}/{column}"));
+
+            CommandInfoRepository.Instance.TryAddCommand(
+                GetDataGridColumnCount,
+                new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/column/count"));
+
+            CommandInfoRepository.Instance.TryAddCommand(
+                GetDataGridRowCount,
+                new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/row/count"));
         }
 
         public DataGrid(IWebElement element)
             : base(element)
         {
+        }
+
+        #endregion
+
+        #region Public Properties
+
+        public int ColumnCount
+        {
+            get
+            {
+                var parameters = new Dictionary<string, object> { { "id", this.WrappedElement.GetId() } };
+                var response = this.WrappedElement.Execute(GetDataGridColumnCount, parameters);
+
+                return int.Parse(response.Value.ToString());
+            }
+        }
+
+        public int RowCount
+        {
+            get
+            {
+                var parameters = new Dictionary<string, object> { { "id", this.WrappedElement.GetId() } };
+                var response = this.WrappedElement.Execute(GetDataGridRowCount, parameters);
+
+                return int.Parse(response.Value.ToString());
+            }
         }
 
         #endregion
