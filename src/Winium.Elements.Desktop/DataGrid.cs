@@ -51,8 +51,8 @@
         {
             get
             {
-                var parameters = new Dictionary<string, object> { { "id", this.WrappedElement.GetId() } };
-                var response = this.WrappedElement.Execute(GetDataGridColumnCount, parameters);
+                var parameters = new Dictionary<string, object> { { "id", this.Id } };
+                var response = this.Execute(GetDataGridColumnCount, parameters);
 
                 return int.Parse(response.Value.ToString());
             }
@@ -62,8 +62,8 @@
         {
             get
             {
-                var parameters = new Dictionary<string, object> { { "id", this.WrappedElement.GetId() } };
-                var response = this.WrappedElement.Execute(GetDataGridRowCount, parameters);
+                var parameters = new Dictionary<string, object> { { "id", this.Id } };
+                var response = this.Execute(GetDataGridRowCount, parameters);
 
                 return int.Parse(response.Value.ToString());
             }
@@ -75,13 +75,8 @@
 
         public RemoteWebElement GetCell(int row, int column)
         {
-            var parameters = new Dictionary<string, object>
-                                 {
-                                     { "id", this.WrappedElement.GetId() },
-                                     { "row", row },
-                                     { "column", column }
-                                 };
-            var response = this.WrappedElement.Execute(GetDataGridCell, parameters);
+            var parameters = new Dictionary<string, object> { { "id", this.Id }, { "row", row }, { "column", column } };
+            var response = this.Execute(GetDataGridCell, parameters);
 
             var elementDictionary = response.Value as Dictionary<string, object>;
             if (elementDictionary == null)
@@ -89,9 +84,7 @@
                 return null;
             }
 
-            return new RemoteWebElement(
-                (RemoteWebDriver)this.WrappedElement.WrappedDriver,
-                (string)elementDictionary["ELEMENT"]);
+            return new RemoteWebElement((RemoteWebDriver)this.WrappedDriver, (string)elementDictionary["ELEMENT"]);
         }
 
         #endregion
