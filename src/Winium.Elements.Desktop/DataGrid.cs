@@ -19,6 +19,10 @@
 
         private const string GetDataGridRowCount = "getDataGridRowCount";
 
+        private const string ScrollToDataGridCell = "scrollToDataGridCell";
+
+        private const string SelectDataGridCell = "selectDataGridCell";
+
         #endregion
 
         #region Constructors and Destructors
@@ -36,6 +40,14 @@
             CommandInfoRepository.Instance.TryAddCommand(
                 GetDataGridRowCount,
                 new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/row/count"));
+
+            CommandInfoRepository.Instance.TryAddCommand(
+                ScrollToDataGridCell,
+                new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/scroll/{row}/{column}"));
+
+            CommandInfoRepository.Instance.TryAddCommand(
+                SelectDataGridCell,
+                new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/select/{row}/{column}"));
         }
 
         public DataGrid(IWebElement element)
@@ -85,6 +97,18 @@
             }
 
             return new RemoteWebElement((RemoteWebDriver)this.WrappedDriver, (string)elementDictionary["ELEMENT"]);
+        }
+
+        public void ScrollTo(int row, int column)
+        {
+            var parameters = new Dictionary<string, object> { { "id", this.Id }, { "row", row }, { "column", column } };
+            this.Execute(ScrollToDataGridCell, parameters);
+        }
+
+        public void Select(int row, int column)
+        {
+            var parameters = new Dictionary<string, object> { { "id", this.Id }, { "row", row }, { "column", column } };
+            this.Execute(SelectDataGridCell, parameters);
         }
 
         #endregion
