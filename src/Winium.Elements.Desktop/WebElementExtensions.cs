@@ -17,6 +17,10 @@
         {
             return new DataGrid(element);
         }
+        public static ListBox ToListBox(this IWebElement element)
+        {
+            return new ListBox(element);
+        }
 
         #endregion
 

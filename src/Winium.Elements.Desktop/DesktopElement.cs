@@ -3,6 +3,7 @@
     #region using
 
     using System;
+    using System.Collections.Generic;
 
     using OpenQA.Selenium;
     using OpenQA.Selenium.Remote;
@@ -21,6 +22,17 @@
         #endregion
 
         #region Methods
+
+        protected RemoteWebElement CreateRemoteWebElementFromResponse(Response response)
+        {
+            var elementDictionary = response.Value as Dictionary<string, object>;
+            if (elementDictionary == null)
+            {
+                return null;
+            }
+
+            return new RemoteWebElement((RemoteWebDriver)this.WrappedDriver, (string)elementDictionary["ELEMENT"]);
+        }
 
         private static RemoteWebDriver GetRemoteWebDriver(IWebElement element)
         {
