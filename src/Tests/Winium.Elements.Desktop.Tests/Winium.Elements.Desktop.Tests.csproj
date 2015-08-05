@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ListBoxTests.cs" />
     <Compile Include="DriverMocked.cs" />
     <Compile Include="DataGridTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
