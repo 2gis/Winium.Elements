@@ -13,7 +13,7 @@
     {
         #region Constants
 
-        private const string GetDataGridCell = "getDataGridCell";
+        private const string FindDataGridCell = "findDataGridCell";
 
         private const string GetDataGridColumnCount = "getDataGridColumnCount";
 
@@ -30,7 +30,7 @@
         static DataGrid()
         {
             CommandInfoRepository.Instance.TryAddCommand(
-                GetDataGridCell,
+                FindDataGridCell,
                 new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/cell/{row}/{column}"));
 
             CommandInfoRepository.Instance.TryAddCommand(
@@ -88,7 +88,7 @@
         public RemoteWebElement GetCell(int row, int column)
         {
             var parameters = new Dictionary<string, object> { { "id", this.Id }, { "row", row }, { "column", column } };
-            var response = this.Execute(GetDataGridCell, parameters);
+            var response = this.Execute(FindDataGridCell, parameters);
 
             return this.CreateRemoteWebElementFromResponse(response);
         }

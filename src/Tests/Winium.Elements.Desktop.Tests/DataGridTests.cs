@@ -20,12 +20,12 @@
         #region Public Methods and Operators
 
         [Test]
-        public void GetDataGridCell()
+        public void FindDataGridCell()
         {
             var driverMock = new DriverMocked();
 
             driverMock.Protected()
-                .Setup<Response>("Execute", "getDataGridCell", ItExpr.IsAny<Dictionary<string, object>>())
+                .Setup<Response>("Execute", "findDataGridCell", ItExpr.IsAny<Dictionary<string, object>>())
                 .Returns(Response.FromJson(@"{value: {ELEMENT: ""dGridCellElementId""}}"));
 
             var elementMock = new Mock<RemoteWebElement>(driverMock.Object, "dGridElementId");
