@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ComboBox.cs" />
     <Compile Include="ListBox.cs" />
     <Compile Include="DesktopElement.cs" />
     <Compile Include="WebElementExtensions.cs" />
