@@ -28,6 +28,10 @@
             return new ComboBox(element);
         }
 
+        public static Menu ToMenu(this IWebElement element)
+        {
+            return new Menu(element);
+        }
         #endregion
 
         #region Methods
