@@ -1,4 +1,4 @@
-﻿namespace Winium.Elements.Desktop
+﻿namespace Winium.Elements.Desktop.Extensions
 {
     #region using
 
@@ -17,9 +17,20 @@
         {
             return new DataGrid(element);
         }
+
         public static ListBox ToListBox(this IWebElement element)
         {
             return new ListBox(element);
+        }
+
+        public static ComboBox ToComboBox(this IWebElement element)
+        {
+            return new ComboBox(element);
+        }
+
+        public static Menu ToMenu(this IWebElement element)
+        {
+            return new Menu(element);
         }
 
         #endregion

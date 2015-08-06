@@ -49,6 +49,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuTests.cs" />
+    <Compile Include="ComboBoxTests.cs" />
     <Compile Include="ListBoxTests.cs" />
     <Compile Include="DriverMocked.cs" />
     <Compile Include="DataGridTests.cs" />

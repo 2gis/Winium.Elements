@@ -12,6 +12,8 @@
     using OpenQA.Selenium;
     using OpenQA.Selenium.Remote;
 
+    using Winium.Elements.Desktop.Extensions;
+
     #endregion
 
     [TestFixture]
@@ -32,7 +34,7 @@
 
             var dataGrid = elementMock.Object.ToDataGrid();
 
-            var cell = dataGrid.GetCell(1, 1);
+            var cell = dataGrid.Find(1, 1);
 
             Assert.That(cell, Is.TypeOf(typeof(RemoteWebElement)));
         }

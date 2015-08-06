@@ -85,24 +85,29 @@
 
         #region Public Methods and Operators
 
-        public RemoteWebElement GetCell(int row, int column)
+        public RemoteWebElement Find(int row, int column)
         {
-            var parameters = new Dictionary<string, object> { { "id", this.Id }, { "row", row }, { "column", column } };
-            var response = this.Execute(FindDataGridCell, parameters);
-
-            return this.CreateRemoteWebElementFromResponse(response);
+            return this.CreateRemoteWebElementFromResponse(this.CallDataGridcellCommand(FindDataGridCell, row, column));
         }
 
         public void ScrollTo(int row, int column)
         {
-            var parameters = new Dictionary<string, object> { { "id", this.Id }, { "row", row }, { "column", column } };
-            this.Execute(ScrollToDataGridCell, parameters);
+            this.CallDataGridcellCommand(ScrollToDataGridCell, row, column);
         }
 
         public void Select(int row, int column)
         {
+            this.CallDataGridcellCommand(SelectDataGridCell, row, column);
+        }
+
+        #endregion
+
+        #region Methods
+
+        private Response CallDataGridcellCommand(string command, int row, int column)
+        {
             var parameters = new Dictionary<string, object> { { "id", this.Id }, { "row", row }, { "column", column } };
-            this.Execute(SelectDataGridCell, parameters);
+            return this.Execute(command, parameters);
         }
 
         #endregion
