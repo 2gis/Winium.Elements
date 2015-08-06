@@ -45,7 +45,7 @@
 
             CommandInfoRepository.Instance.TryAddCommand(
                 FindComboBoxSelectedItem,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/combobox/selected/element"));
+                new CommandInfo("POST", "/session/{sessionId}/element/{id}/combobox/item/selected"));
 
             CommandInfoRepository.Instance.TryAddCommand(
                 ScrollToComboBoxItem,

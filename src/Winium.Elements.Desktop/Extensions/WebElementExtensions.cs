@@ -32,6 +32,7 @@
         {
             return new Menu(element);
         }
+
         #endregion
 
         #region Methods
