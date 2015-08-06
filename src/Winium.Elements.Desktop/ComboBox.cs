@@ -78,22 +78,17 @@
 
         public void Collapse()
         {
-            var parameters = new Dictionary<string, object> { { "id", this.Id } };
-            this.Execute(CollapseComboBox, parameters);
+            this.CallComboBoxCommand(CollapseComboBox);
         }
 
         public void Expand()
         {
-            var parameters = new Dictionary<string, object> { { "id", this.Id } };
-            this.Execute(ExpandComboBox, parameters);
+            this.CallComboBoxCommand(ExpandComboBox);
         }
 
         public RemoteWebElement GetSelected(int row, int column)
         {
-            var parameters = new Dictionary<string, object> { { "id", this.Id } };
-            var response = this.Execute(FindComboBoxSelectedItem, parameters);
-
-            return this.CreateRemoteWebElementFromResponse(response);
+            return this.CreateRemoteWebElementFromResponse(this.CallComboBoxCommand(FindComboBoxSelectedItem));
         }
 
         public RemoteWebElement ScrollTo(By by)
@@ -107,6 +102,16 @@
                 new Dictionary<string, object> { { "id", this.Id }, { "using", strategy }, { "value", value }, });
 
             return this.CreateRemoteWebElementFromResponse(response);
+        }
+
+        #endregion
+
+        #region Methods
+
+        private Response CallComboBoxCommand(string command)
+        {
+            var parameters = new Dictionary<string, object> { { "id", this.Id } };
+            return this.Execute(command, parameters);
         }
 
         #endregion
