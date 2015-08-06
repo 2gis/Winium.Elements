@@ -3,11 +3,11 @@
     #region using
 
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text.RegularExpressions;
 
     using OpenQA.Selenium;
     using OpenQA.Selenium.Remote;
+
+    using Winium.Elements.Desktop.Extensions;
 
     #endregion
 
@@ -39,13 +39,14 @@
 
         public RemoteWebElement ScrollTo(By by)
         {
-            var match = Regex.Match(by.ToString(), @"\.(.*)\: (.*)");
-            var strategy = Regex.Replace(match.Groups[1].Value, "([A-Z])", " $1").Split('[').First().Trim().ToLower();
-            var value = match.Groups[2].Value;
-
             var response = this.Execute(
                 ScrollToListBoxItem,
-                new Dictionary<string, object> { { "id", this.Id }, { "using", strategy }, { "value", value }, });
+                new Dictionary<string, object>
+                    {
+                        { "id", this.Id },
+                        { "using", by.GetStrategy() },
+                        { "value", by.GetValue() },
+                    });
 
             return this.CreateRemoteWebElementFromResponse(response);
         }

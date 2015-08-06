@@ -41,7 +41,7 @@
 
         #region Public Methods and Operators
 
-        public RemoteWebElement GetItem(string path)
+        public RemoteWebElement FindItem(string path)
         {
             return this.CallMenuItemCommand(FindMenuItem, path);
         }

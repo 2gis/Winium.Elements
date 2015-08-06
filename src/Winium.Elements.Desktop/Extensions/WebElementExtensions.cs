@@ -1,4 +1,4 @@
-﻿namespace Winium.Elements.Desktop
+﻿namespace Winium.Elements.Desktop.Extensions
 {
     #region using
 

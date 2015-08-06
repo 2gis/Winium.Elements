@@ -8,6 +8,8 @@
     using OpenQA.Selenium;
     using OpenQA.Selenium.Remote;
 
+    using Winium.Elements.Desktop.Extensions;
+
     #endregion
 
     public abstract class DesktopElement : RemoteWebElement

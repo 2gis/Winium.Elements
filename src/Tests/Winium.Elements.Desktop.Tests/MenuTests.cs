@@ -11,6 +11,8 @@
 
     using OpenQA.Selenium.Remote;
 
+    using Winium.Elements.Desktop.Extensions;
+
     #endregion
 
     [TestFixture]
@@ -31,7 +33,7 @@
 
             var menu = elementMock.Object.ToMenu();
 
-            Assert.That(menu.GetItem("Level1$Level2"), Is.TypeOf(typeof(RemoteWebElement)));
+            Assert.That(menu.FindItem("Level1$Level2"), Is.TypeOf(typeof(RemoteWebElement)));
         }
 
         [Test]

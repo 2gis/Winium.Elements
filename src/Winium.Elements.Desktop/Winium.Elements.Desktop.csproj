@@ -32,11 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Extensions\ByExtensions.cs" />
     <Compile Include="ComboBox.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="ListBox.cs" />
     <Compile Include="DesktopElement.cs" />
-    <Compile Include="WebElementExtensions.cs" />
+    <Compile Include="Extensions\WebElementExtensions.cs" />
     <Compile Include="DataGrid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
