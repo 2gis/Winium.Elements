@@ -1,13 +1,18 @@
+Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 #------------------------------
 
-Import-Module .\methods.psm1
+Import-Module '.\modules\msbuild.psm1' -DisableNameChecking
+Import-Module '.\modules\nunit.psm1' -DisableNameChecking
 
-$workspace = $PSScriptRoot
-$solutionDir = Join-Path $workspace "../src"
+$configuration = 'Release'
+$solutionDir = Join-Path $PSScriptRoot "../src"
+$solution = Join-Path $solutionDir 'Winium.Elements.sln'
+$testFile = Join-Path $solutionDir "Tests\Winium.Elements.Desktop.Tests\bin\$configuration\Winium.Elements.Desktop.Tests.dll"
 
-$msbuild = Get-Env 'MSBUILD'
-$nunitConsole = Get-Env 'NUNIT_CONSOLE'
+$msbuildProperties = @{
+    'Configuration' = $configuration
+}
 
-Build $msbuild $solutionDir
-Test $nunitConsole $solutionDir
+Invoke-MSBuild $solution $msbuildProperties -Verbose
+Invoke-NUnit $testFile -Verbose
