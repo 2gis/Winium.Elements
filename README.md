@@ -9,7 +9,7 @@
 <img src="https://raw.githubusercontent.com/2gis/Winium.StoreApps/assets/winium.png" alt="Winium.Elements is a set of extensions for WebDriver C# bindings providing easy-to-use way of interacting with desktop-specific UI elements in Windows Desktop apps tested with Winium.Desktop">
 </p>
 
-This a set of extensions for WebDriver C# bindings providing easy-to-use way of interacting with desktop-specific UI elements in Windows Desktop apps tested with Winium.Desktop.
+This is a set of extensions for [WebDriver C# bindings](https://www.nuget.org/packages/Selenium.WebDriver/) providing easy-to-use way of interacting with desktop-specific UI elements in Windows Desktop apps tested with Winium.Desktop.
 
 With the help of Winium.Elements you could simplify interaction with such complex elements like DataGrid, ComboBox, Menu and etc.
 
