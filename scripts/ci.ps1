@@ -2,8 +2,8 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 #------------------------------
 
-Import-Module '.\modules\msbuild.psm1' -DisableNameChecking
-Import-Module '.\modules\nunit.psm1' -DisableNameChecking
+Import-Module '.\modules\msbuild.psm1'
+Import-Module '.\modules\nunit.psm1'
 
 $configuration = 'Release'
 $solutionDir = Join-Path $PSScriptRoot "../src"
