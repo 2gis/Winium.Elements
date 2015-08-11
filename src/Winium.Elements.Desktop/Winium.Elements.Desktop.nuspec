@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>2GIS</authors>
+    <owners>2GIS</owners>
+    <projectUrl>https://github.com/2gis/Winium.Elements</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>
+    </releaseNotes>
+    <copyright>Copyright @ 2015</copyright>
+    <tags></tags>
+  </metadata>
+</package>
