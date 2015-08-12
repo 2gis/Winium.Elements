@@ -31,7 +31,8 @@ Function Invoke-NUnit()
     & $NUnitConsolePath $arguments
     if ($LASTEXITCODE -ne 0)
     {
-        throw "Tests failed. See $resultFile"
+        Write-Output "Tests failed. See $resultFile"
+        Exit $LASTEXITCODE
     }
     
     Write-Output '---> Tests succeeded.'

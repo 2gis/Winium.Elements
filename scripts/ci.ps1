@@ -1,18 +1,13 @@
-Set-StrictMode -Version Latest
+﻿Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 #------------------------------
 
+Import-Module '.\ProjectData.ps1'
 Import-Module '.\modules\msbuild.psm1'
 Import-Module '.\modules\nunit.psm1'
 
-$configuration = 'Release'
-$solutionDir = Join-Path $PSScriptRoot "../src"
-$solution = Join-Path $solutionDir 'Winium.Elements.sln'
-$testFile = Join-Path $solutionDir "Tests\Winium.Elements.Desktop.Tests\bin\$configuration\Winium.Elements.Desktop.Tests.dll"
-
-$msbuildProperties = @{
-    'Configuration' = $configuration
-}
-
+# Build
 Invoke-MSBuild $solution $msbuildProperties -Verbose
+
+# Test
 Invoke-NUnit $testFile -Verbose

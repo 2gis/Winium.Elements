@@ -15,7 +15,6 @@ Function Invoke-NuGetPack()
         [string]$outputDirectory = '.'
     )
     
-    $nugetPath = Get-NuGetPath
     $arguments = @(
         'pack'
         $packTarget
@@ -27,32 +26,81 @@ Function Invoke-NuGetPack()
     )
 
     Write-Output '---> Run NuGet pack.'
+    Invoke-NuGet $arguments
+    Write-Output '---> NuGet pack succeeded.'
+}
+
+Function Invoke-NuGetPush()
+{
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory=$True)]
+        [string]$package
+    )
+    
+    $arguments = @(
+        'push'
+        $package
+    )
+
+    Write-Output '---> Run NuGet pack.'
+    Invoke-NuGet $arguments
+    Write-Output '---> NuGet pack succeeded.'
+}
+
+Function Invoke-NuGet($arguments)
+{
+    $nugetPath = ''
+    if ($env:NUGET)
+    {
+        $nugetPath = $env:NUGET
+    }
+    elseif (Get-Command 'nuget.exe' -ErrorAction SilentlyContinue) 
+    {
+        $nugetPath = 'nuget'
+    }
+    else
+    {
+        Write-Verbose 'Environment variable NUGET not set'
+        Write-Verbose 'Unable to find nuget.exe in your PATH'
+        Write-Output 'Unable to find path to nuget.exe. See more with -Verbose'
+        Exit 1
+    }
+    
     Write-Verbose "NuGet path: $nugetPath"
     Write-Verbose "NuGet arguments: $arguments"
     & $nugetPath $arguments
     if ($LASTEXITCODE -ne 0)
     {
-        throw "NuGet pack failed with exit code $LASTEXITCODE"
+        Write-Output "NuGet failed with exit code $LASTEXITCODE"
+        Exit $LASTEXITCODE
     }
-    
-    Write-Output '---> NuGet pack succeeded.'
 }
 
-Function Get-NuGetPath()
+Function Update-Nuspec()
 {
-    if ($env:NUGET)
-    {
-        return $env:NUGET
-    }
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory=$True)]
+        [string]$nuspecPath,
+
+        [Parameter(Mandatory=$True)]
+        [string]$version,
+
+        [Parameter(Mandatory=$True)]
+        [string]$description
+    )
     
-    Write-Verbose 'Environment variable NUGET not set'
-    if (Get-Command 'nuget.exe' -ErrorAction SilentlyContinue) 
-    {
-        return 'nuget'
-    }
+    $nl = [Environment]::NewLine
+    $releaseNotes = $nl + "v$version" + $nl + $description + $nl
     
-    Write-Verbose 'Unable to find nuget.exe in your PATH'
-    throw 'Unable to find path to nuget.exe. See more with -Verbose'
+    Write-Output '---> Run Nuspec file update.'
+    Write-Verbose "Nuspec file path: $nuspecPath"
+    Write-Verbose "New release notes: $releaseNotes"
+    $xml = [xml](Get-Content $nuspecPath)
+    $xml.package.metadata.releaseNotes = $releaseNotes
+    $xml.Save($nuspecPath)
+    Write-Output '---> Nuspec file update succeeded.'
 }
 
-Export-ModuleMember -Function Invoke-NuGetPack
+Export-ModuleMember -Function Invoke-NuGetPack, Invoke-NuGetPush, Update-Nuspec

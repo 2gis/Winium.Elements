@@ -36,7 +36,8 @@ Function Invoke-MSBuild()
     & $MSBuildPath $arguments
     if ($LASTEXITCODE -ne 0)
     {
-        throw "Build failed with exit code $lastExitCode"
+        Write-Output "Build failed with exit code $lastExitCode"
+        Exit $LASTEXITCODE
     }
     
     Write-Output '---> Build succeeded.'
