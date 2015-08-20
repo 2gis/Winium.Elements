@@ -2,7 +2,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 #------------------------------
 
-Import-Module '.\ProjectData.ps1'
+Import-Module '.\project-consts.ps1'
 Import-Module '.\modules\versioning.psm1'
 Import-Module '.\modules\changelog.psm1'
 Import-Module '.\modules\msbuild.psm1'
@@ -13,6 +13,9 @@ Import-Module '.\modules\github.psm1'
 
 $version = $env:release_version
 $description = $env:release_description
+
+# Git checkout master
+Invoke-Git ('checkout', 'master') -Verbose
 
 # Update AssembyInfo
 Update-AssemblyInfo $assemblyInfoPath $version -Verbose
@@ -32,9 +35,6 @@ Invoke-NUnit $testFile -Verbose
 # Create nuget-package
 New-Item -ItemType directory -Path $releaseDir | Out-Null
 Invoke-NuGetPack $project $configuration $releaseDir -Verbose
-
-# Git checkout master
-Invoke-Git ('checkout', 'master') -Verbose
 
 # Git add changes
 Invoke-Git ('add', $assemblyInfoPath) -Verbose

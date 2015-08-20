@@ -2,7 +2,7 @@
 $ErrorActionPreference = 'Stop'
 #------------------------------
 
-Import-Module '.\ProjectData.ps1'
+Import-Module '.\project-consts.ps1'
 Import-Module '.\modules\msbuild.psm1'
 Import-Module '.\modules\nunit.psm1'
 Import-Module '.\modules\nuget.psm1'
