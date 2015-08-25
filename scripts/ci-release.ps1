@@ -2,14 +2,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 #------------------------------
 
-Import-Module '.\project-consts.ps1'
-Import-Module '.\modules\versioning.psm1'
-Import-Module '.\modules\changelog.psm1'
-Import-Module '.\modules\msbuild.psm1'
-Import-Module '.\modules\nunit.psm1'
-Import-Module '.\modules\nuget.psm1'
-Import-Module '.\modules\git.psm1'
-Import-Module '.\modules\github.psm1'
+Import-Module '.\setup.ps1' -Args (,('git', 'versioning', 'changelog', 'msbuild', 'nunit', 'nuget', 'github'))
 
 $version = $env:release_version
 $description = $env:release_description

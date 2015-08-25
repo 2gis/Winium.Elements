@@ -2,10 +2,7 @@
 $ErrorActionPreference = 'Stop'
 #------------------------------
 
-Import-Module '.\project-consts.ps1'
-Import-Module '.\modules\msbuild.psm1'
-Import-Module '.\modules\nunit.psm1'
-Import-Module '.\modules\nuget.psm1'
+Import-Module '.\setup.ps1' -Args (,('msbuild', 'nunit', 'nuget'))
 
 if (Test-Path $releaseDir)
 {
