@@ -9,7 +9,6 @@ import winium.elements.desktop.Menu;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Map;
 
 public class WebElementExtensions {
     private WebElementExtensions() { }
@@ -31,25 +30,32 @@ public class WebElementExtensions {
     }
 
     public static Response execute(WebElement element, Object... parameters) {
-        // TODO: Rewrite this
-        Method methodInfo = null;
-        try {
-            methodInfo = element.getClass().getMethod("execute", new Class<?>[]{});
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+        // What about access levels? Exceptions?
+        for (Method methodInfo : element.getClass().getMethods()) {
+            if ("execute".equals(methodInfo.getName())) {
+                try {
+                    return (Response)methodInfo.invoke(element, parameters);
+                } catch (IllegalAccessException e) {
+                    return null;
+                } catch (InvocationTargetException e) {
+                    return null;
+                }
+            }
         }
-        try {
-            return (Response)methodInfo.invoke(element, parameters);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-
         return null;
     }
 
     public static String getId(WebElement element) {
-        return null;
+        // What about access levels? Exceptions?
+        try {
+            Method methodInfo = element.getClass().getMethod("getId");
+            return methodInfo.invoke(element).toString();
+        } catch (NoSuchMethodException e) {
+            return null;
+        } catch (InvocationTargetException e) {
+            return null;
+        } catch (IllegalAccessException e) {
+            return null;
+        }
     }
 }
