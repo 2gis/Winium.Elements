@@ -2,23 +2,13 @@ package winium.elements.desktop;
 
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.CommandInfo;
 import org.openqa.selenium.remote.RemoteWebElement;
-import org.openqa.selenium.remote.http.HttpMethod;
-import winium.elements.desktop.internal.CommandInfoRepository;
 
 import java.util.HashMap;
 
 public class Menu extends DesktopElement {
-    private static final String findMenuItem = "findMenuItem";
-    private static final String selectMenuItem = "selectMenuItem";
-
-    static {
-        CommandInfoRepository.tryAddCommand(findMenuItem,
-                new CommandInfo("/session/{sessionId}/element/{id}/menu/item/{path}", HttpMethod.POST));
-        CommandInfoRepository.tryAddCommand(selectMenuItem,
-                new CommandInfo("/session/{sessionId}/element/{id}/menu/select/{path}", HttpMethod.POST));
-    }
+    public static final String FIND_MENU_ITEM = "findMenuItem";
+    public static final String SELECT_MENU_ITEM = "selectMenuItem";
 
     private RemoteWebElement callMenuItemCommand(String command, String path) {
         HashMap<String, Object> parameters = new HashMap<String, Object>();
@@ -33,10 +23,10 @@ public class Menu extends DesktopElement {
     }
 
     public RemoteWebElement findItem(String path) {
-        return this.callMenuItemCommand(findMenuItem, path);
+        return this.callMenuItemCommand(FIND_MENU_ITEM, path);
     }
 
     public RemoteWebElement selectItem(String path) {
-        return this.callMenuItemCommand(selectMenuItem, path);
+        return this.callMenuItemCommand(SELECT_MENU_ITEM, path);
     }
 }

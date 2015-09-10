@@ -2,21 +2,13 @@ package winium.elements.desktop;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.remote.CommandInfo;
 import org.openqa.selenium.remote.RemoteWebElement;
-import org.openqa.selenium.remote.http.HttpMethod;
 import winium.elements.desktop.extensions.ByExtensions;
-import winium.elements.desktop.internal.CommandInfoRepository;
 
 import java.util.HashMap;
 
 public class ListBox extends DesktopElement {
-    private static final String scrollToListBoxItem = "scrollToListBoxItem";
-
-    static {
-        CommandInfoRepository.tryAddCommand(scrollToListBoxItem,
-                new CommandInfo("/session/{sessionId}/element/{id}/listbox/scroll", HttpMethod.POST));
-    }
+    public static final String SCROLL_TO_LIST_BOX_ITEM = "scrollToListBoxItem";
 
     public ListBox(WebElement element) {
         super(element);
@@ -27,6 +19,6 @@ public class ListBox extends DesktopElement {
         parameters.put("id", this.getId());
         parameters.put("using", ByExtensions.getStrategy(by));
         parameters.put("value", ByExtensions.getValue(by));
-        return this.createRemoteWebElementFromResponse(this.execute(scrollToListBoxItem, parameters));
+        return this.createRemoteWebElementFromResponse(this.execute(SCROLL_TO_LIST_BOX_ITEM, parameters));
     }
 }
