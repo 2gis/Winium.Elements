@@ -12,11 +12,15 @@ public class ByExtensions {
 
     public static Object getStrategy(By by) {
         Matcher m = descriptionRegexp.matcher(by.toString());
+        if (!m.find())
+            return null;
         return m.group(1).replaceAll("([A-Z])", " $1").split("\\[")[0].trim().toLowerCase();
     }
 
     public static Object getValue(By by) {
         Matcher m = descriptionRegexp.matcher(by.toString());
+        if (!m.find())
+            return null;
         return m.group(2);
     }
 }
