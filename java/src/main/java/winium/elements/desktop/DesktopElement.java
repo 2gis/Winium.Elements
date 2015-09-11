@@ -23,10 +23,14 @@ public abstract class DesktopElement extends RemoteWebElement {
 
     protected RemoteWebElement createRemoteWebElementFromResponse(Response response) {
         Object value = response.getValue();
+        if (value instanceof RemoteWebElement){
+            return (RemoteWebElement)value;
+        }
+
         if (!(value instanceof Map<?, ?>)) {
             return null;
         }
-        Map<String, Object> elementDictionary = (Map<String, Object>)value;
+        Map<?, ?> elementDictionary = (Map<?, ?>)value;
         RemoteWebElement result = new RemoteWebElement();
         result.setParent((RemoteWebDriver)this.getWrappedDriver());
         result.setId((String)elementDictionary.get("ELEMENT"));
