@@ -43,7 +43,7 @@ public class ComboBox extends DesktopElement {
         this.callComboBoxCommand(EXPAND_COMBO_BOX);
     }
 
-    public RemoteWebElement findSelected(int row, int column) {
+    public RemoteWebElement findSelected() {
         return this.createRemoteWebElementFromResponse(this.callComboBoxCommand(FIND_COMBO_BOX_SELECTED_ITEM));
     }
 
