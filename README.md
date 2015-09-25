@@ -7,9 +7,23 @@
 <img src="https://raw.githubusercontent.com/2gis/Winium.StoreApps/assets/winium.png" alt="Winium.Elements is a set of extensions for WebDriver C# bindings providing easy-to-use way of interacting with desktop-specific UI elements in Windows Desktop apps tested with Winium.Desktop">
 </p>
 
-This is a set of extensions for [WebDriver C# bindings](https://www.nuget.org/packages/Selenium.WebDriver/) providing easy-to-use way of interacting with desktop-specific UI elements in Windows Desktop apps tested with Winium.Desktop.
+This is a set of extensions for [WebDriver Language Bindings](http://www.seleniumhq.org/download/) providing easy-to-use way of interacting with desktop-specific UI elements in Windows Desktop apps tested with Winium.Desktop.
 
 With the help of Winium.Elements you could simplify interaction with such complex elements like DataGrid, ComboBox, Menu and etc.
+
+## Quick Start (.net example)
+1. Add reference to `Winium.Elements.Desktop` in UI test project ([install NuGet package](https://www.nuget.org/packages/Winium.Elements.Desktop/)).
+2. Find element and convert it to [ElementType] using To[ElementType] method.
+	
+	```cs
+	var element = driver.FindElementById("data_grid");
+	var dataGrid = element.ToDataGrid();
+	```
+	Use element specific extension methods, for example:
+	```cs
+	var cell = dataGrid.Find(1, 1);
+	Assert.AreEqual("expected cell text", cell.Text);
+	```
 
 ## How it works
 Winium.Elements extends OpenQA.Selenium bindings adding Winium.Desktop driver commands. 
@@ -25,7 +39,7 @@ Contributions are welcome!
 
 ## Contact
 
-Have some questions? Found a bug? Create [new issue](https://github.com/2gis/Winium.Elements/issues/new) or contact us at t.kurnosova@2gis.ru
+Have some questions? Found a bug? Create [new issue](https://github.com/2gis/Winium.Elements/issues/new)
 
 ## License
 
