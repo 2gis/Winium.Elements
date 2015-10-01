@@ -1,4 +1,4 @@
-# Winium.Elements for .Net
+# Winium.Elements for .NET
 
 [![Build Status](https://img.shields.io/jenkins/s/http/opensource-ci.2gis.ru/Winium.Elements.svg?style=flat-square)](http://opensource-ci.2gis.ru/job/Winium.Elements/)
 [![Inner Server NuGet downloads](https://img.shields.io/nuget/dt/Winium.Elements.Desktop.svg?style=flat-square)](https://www.nuget.org/packages/Winium.Elements/)
