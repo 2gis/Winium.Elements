@@ -2,10 +2,9 @@
 $ErrorActionPreference = 'Stop'
 #------------------------------
 
-Import-Module '.\setup.ps1' -Args (,('msbuild', 'nunit'))
+$root = $PWD
 
-# Build
-Invoke-MSBuild $solution $msbuildProperties -Verbose
-
-# Test
-Invoke-NUnit $testFile -Verbose
+# .NET
+cd ..\dotnet\scripts
+& .\ci.ps1
+Copy-Item nunit-result.xml -Destination $root

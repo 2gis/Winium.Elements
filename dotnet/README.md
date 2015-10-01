@@ -1,17 +1,19 @@
-# Winium.Elements
+# Winium.Elements for .NET
 
 [![Build Status](https://img.shields.io/jenkins/s/http/opensource-ci.2gis.ru/Winium.Elements.svg?style=flat-square)](http://opensource-ci.2gis.ru/job/Winium.Elements/)
-[![GitHub license](https://img.shields.io/badge/license-MPL 2.0-blue.svg?style=flat-square)](LICENSE)
+[![Inner Server NuGet downloads](https://img.shields.io/nuget/dt/Winium.Elements.Desktop.svg?style=flat-square)](https://www.nuget.org/packages/Winium.Elements/)
+[![Inner Server NuGet version](https://img.shields.io/nuget/v/Winium.Elements.Desktop.svg?style=flat-square)](https://www.nuget.org/packages/Winium.Elements/)
+[![GitHub license](https://img.shields.io/badge/license-MPL 2.0-blue.svg?style=flat-square)](../LICENSE)
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/2gis/Winium.StoreApps/assets/winium.png" alt="Winium.Elements is a set of extensions for WebDriver C# bindings providing easy-to-use way of interacting with desktop-specific UI elements in Windows Desktop apps tested with Winium.Desktop">
 </p>
 
-This is a set of extensions for [WebDriver Clients Bindings](http://www.seleniumhq.org/download/) providing easy-to-use way of interacting with desktop-specific UI elements in Windows Desktop apps tested with Winium.Desktop.
+This is a set of extensions for [WebDriver C# bindings](https://www.nuget.org/packages/Selenium.WebDriver/) providing easy-to-use way of interacting with desktop-specific UI elements in Windows Desktop apps tested with Winium.Desktop.
 
 With the help of Winium.Elements you could simplify interaction with such complex elements like DataGrid, ComboBox, Menu and etc.
 
-## Quick Start (.NET example)
+## Quick Start
 1. Add reference to `Winium.Elements.Desktop` in UI test project ([install NuGet package](https://www.nuget.org/packages/Winium.Elements.Desktop/)).
 2. Find element and convert it to [ElementType] using To[ElementType] method.
 	
@@ -24,8 +26,6 @@ With the help of Winium.Elements you could simplify interaction with such comple
 	var cell = dataGrid.Find(1, 1);
 	Assert.AreEqual("expected cell text", cell.Text);
 	```
-	
-[Read more...](/dotnet/README.md)
 
 ## How it works
 Winium.Elements extends OpenQA.Selenium bindings adding Winium.Desktop driver commands. 
@@ -41,8 +41,8 @@ Contributions are welcome!
 
 ## Contact
 
-Have some questions? Found a bug? Create [new issue](https://github.com/2gis/Winium.Elements/issues/new)
+Have some questions? Found a bug? Create [new issue](https://github.com/2gis/Winium.Elements/issues/new) or contact us at t.kurnosova@2gis.ru
 
 ## License
 
-Winium is released under the MPL 2.0 license. See [LICENSE](LICENSE) for details.
+Winium is released under the MPL 2.0 license. See [LICENSE](../LICENSE) for details.
