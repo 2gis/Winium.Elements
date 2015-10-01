@@ -14,7 +14,7 @@ With the help of Winium.Elements you could simplify interaction with such comple
 1. Download sources, make it and install to you local maven repository (will be added to Maven Central Repository in near future):
     
     ```bash
-    clone https://github.com/2gis/Winium.Elements.git
+    git clone https://github.com/2gis/Winium.Elements.git
     cd Winium.Elements/java
     mvn clean install
     ```
@@ -29,7 +29,7 @@ With the help of Winium.Elements you could simplify interaction with such comple
         </dependency>
     </dependencies>
     ```
-3. Find element and convert it to [ElementType] using to[ElementType] method.
+3. Find element and convert it to [ElementType] using WebElementExtensions.to[ElementType] method.
     
     ```java
     WebElement element = driver.findElementById("data_grid");
@@ -38,7 +38,7 @@ With the help of Winium.Elements you could simplify interaction with such comple
     Use element specific extension methods, for example:
     ```java
     RemoteWebElement cell = dataGrid.find(1, 1);
-    Assert.AreEqual("expected cell text", cell.getText());
+    Assert.assertEquals("expected cell text", cell.getText());
     ```
 
 ## How it works
