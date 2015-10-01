@@ -24,6 +24,8 @@ With the help of Winium.Elements you could simplify interaction with such comple
 	var cell = dataGrid.Find(1, 1);
 	Assert.AreEqual("expected cell text", cell.Text);
 	```
+	
+[Read more...](/dotnet/README.md)
 
 ## How it works
 Winium.Elements extends OpenQA.Selenium bindings adding Winium.Desktop driver commands. 
