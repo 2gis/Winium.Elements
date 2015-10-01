@@ -12,12 +12,14 @@ With the help of Winium.Elements you could simplify interaction with such comple
 
 ## Quick Start
 1. Download sources, make it and install to you local maven repository (will be added to Maven Central Repository in near future):
+    
     ```bash
     clone https://github.com/2gis/Winium.Elements.git
     cd Winium.Elements/java
     mvn clean install
     ```
 2. Add reference to `winium.elements.desktop` to your pom.xml file:
+    
     ```xml
     <dependencies>
         <dependency>
@@ -27,7 +29,7 @@ With the help of Winium.Elements you could simplify interaction with such comple
         </dependency>
     </dependencies>
     ```
-3. Find element and convert it to [ElementType] using To[ElementType] method.
+3. Find element and convert it to [ElementType] using to[ElementType] method.
     
     ```java
     WebElement element = driver.findElementById("data_grid");
