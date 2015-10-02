@@ -24,12 +24,17 @@ With the help of Winium.Elements you could simplify interaction with such comple
     <dependencies>
         <dependency>
             <groupId>winium.elements.desktop</groupId>
-            <artifactId>winium.elements.desktop</artifactId>
+            <artifactId>winium-elements</artifactId>
             <version>0.1.0-1</version>
         </dependency>
     </dependencies>
     ```
-3. Find element and convert it to [ElementType] using WebElementExtensions.to[ElementType] method.
+3. Use WiniumDriver instead of RemoteWebDriver.
+
+    ```java
+    WiniumDriver driver = new WiniumDriver("http://localhost:9999", desiredCapabilities);
+    ```
+4. Find element and convert it to [ElementType] using WebElementExtensions.to[ElementType] method.
     
     ```java
     WebElement element = driver.findElementById("data_grid");
