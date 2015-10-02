@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>winium.elements.desktop</groupId>
-    <artifactId>winium.elements.desktop</artifactId>
+    <artifactId>winium-elements</artifactId>
     <version>0.1.0-1</version>
 
     <dependencies>
