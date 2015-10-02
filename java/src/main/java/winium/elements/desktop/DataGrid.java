@@ -8,11 +8,11 @@ import org.openqa.selenium.remote.Response;
 import java.util.HashMap;
 
 public class DataGrid extends DesktopElement {
-    public static final String FIND_DATA_GRID_CELL = "findDataGridCell";
-    public static final String GET_DATA_GRID_COLUMN_COUNT = "getDataGridColumnCount";
-    public static final String GET_DATA_GRID_ROW_COUNT = "getDataGridRowCount";
-    public static final String SCROLL_TO_DATA_GRID_CELL = "scrollToDataGridCell";
-    public static final String SELECT_DATA_GRID_CELL = "selectDataGridCell";
+    static final String FIND_DATA_GRID_CELL = "findDataGridCell";
+    static final String GET_DATA_GRID_COLUMN_COUNT = "getDataGridColumnCount";
+    static final String GET_DATA_GRID_ROW_COUNT = "getDataGridRowCount";
+    static final String SCROLL_TO_DATA_GRID_CELL = "scrollToDataGridCell";
+    static final String SELECT_DATA_GRID_CELL = "selectDataGridCell";
 
     private Response callDataGridCellCommand(String command, int row, int column) {
         HashMap<String, Object> parameters = new HashMap<String, Object>();

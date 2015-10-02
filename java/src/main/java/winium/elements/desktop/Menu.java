@@ -7,8 +7,8 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import java.util.HashMap;
 
 public class Menu extends DesktopElement {
-    public static final String FIND_MENU_ITEM = "findMenuItem";
-    public static final String SELECT_MENU_ITEM = "selectMenuItem";
+    static final String FIND_MENU_ITEM = "findMenuItem";
+    static final String SELECT_MENU_ITEM = "selectMenuItem";
 
     private RemoteWebElement callMenuItemCommand(String command, String path) {
         HashMap<String, Object> parameters = new HashMap<String, Object>();

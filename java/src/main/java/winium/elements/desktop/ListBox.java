@@ -8,7 +8,7 @@ import winium.elements.desktop.extensions.ByExtensions;
 import java.util.HashMap;
 
 public class ListBox extends DesktopElement {
-    public static final String SCROLL_TO_LIST_BOX_ITEM = "scrollToListBoxItem";
+    static final String SCROLL_TO_LIST_BOX_ITEM = "scrollToListBoxItem";
 
     public ListBox(WebElement element) {
         super(element);

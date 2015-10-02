@@ -10,11 +10,11 @@ import winium.elements.desktop.extensions.ByExtensions;
 import java.util.HashMap;
 
 public class ComboBox extends DesktopElement {
-    public static final String COLLAPSE_COMBO_BOX = "collapseComboBox";
-    public static final String EXPAND_COMBO_BOX = "expandComboBox";
-    public static final String FIND_COMBO_BOX_SELECTED_ITEM = "findComboBoxSelectedItem";
-    public static final String IS_COMBO_BOX_EXPANDED = "isComboBoxExpanded";
-    public static final String SCROLL_TO_COMBO_BOX_ITEM = "scrollToComboBoxItem";
+    static final String COLLAPSE_COMBO_BOX = "collapseComboBox";
+    static final String EXPAND_COMBO_BOX = "expandComboBox";
+    static final String FIND_COMBO_BOX_SELECTED_ITEM = "findComboBoxSelectedItem";
+    static final String IS_COMBO_BOX_EXPANDED = "isComboBoxExpanded";
+    static final String SCROLL_TO_COMBO_BOX_ITEM = "scrollToComboBoxItem";
 
     private Response callComboBoxCommand(String command)
     {
