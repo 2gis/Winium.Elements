@@ -11,30 +11,23 @@ This is a set of extensions for [WebDriver Java bindings](http://mvnrepository.c
 With the help of Winium.Elements you could simplify interaction with such complex elements like DataGrid, ComboBox, Menu and etc.
 
 ## Quick Start
-1. Download sources, make it and install to you local maven repository (will be added to Maven Central Repository in near future):
-    
-    ```bash
-    git clone https://github.com/2gis/Winium.Elements.git
-    cd Winium.Elements/java
-    mvn clean install
-    ```
-2. Add reference to `winium.elements.desktop` to your pom.xml file:
+1. Add reference to `winium.elements.desktop` to your pom.xml file:
     
     ```xml
     <dependencies>
         <dependency>
-            <groupId>winium.elements.desktop</groupId>
-            <artifactId>winium-elements</artifactId>
+            <groupId>com.github.2gis.winium</groupId>
+            <artifactId>winium-elements-desktop</artifactId>
             <version>0.1.0-1</version>
         </dependency>
     </dependencies>
     ```
-3. Use WiniumDriver instead of RemoteWebDriver.
+2. Use WiniumDriver instead of RemoteWebDriver.
 
     ```java
     WiniumDriver driver = new WiniumDriver("http://localhost:9999", desiredCapabilities);
     ```
-4. Find element and convert it to [ElementType] using WebElementExtensions.to[ElementType] method.
+3. Find element and convert it to [ElementType] using WebElementExtensions.to[ElementType] method.
     
     ```java
     WebElement element = driver.findElementById("data_grid");
