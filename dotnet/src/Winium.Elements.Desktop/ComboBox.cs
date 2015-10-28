@@ -29,29 +29,6 @@
 
         #region Constructors and Destructors
 
-        static ComboBox()
-        {
-            CommandInfoRepository.Instance.TryAddCommand(
-                IsComboBoxExpanded,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/combobox/expanded"));
-
-            CommandInfoRepository.Instance.TryAddCommand(
-                ExpandComboBox,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/combobox/expand"));
-
-            CommandInfoRepository.Instance.TryAddCommand(
-                CollapseComboBox,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/combobox/collapse"));
-
-            CommandInfoRepository.Instance.TryAddCommand(
-                FindComboBoxSelectedItem,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/combobox/items/selected"));
-
-            CommandInfoRepository.Instance.TryAddCommand(
-                ScrollToComboBoxItem,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/combobox/scroll"));
-        }
-
         public ComboBox(IWebElement element)
             : base(element)
         {

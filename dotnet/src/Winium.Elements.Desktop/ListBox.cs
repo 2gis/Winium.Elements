@@ -21,13 +21,6 @@
 
         #region Constructors and Destructors
 
-        static ListBox()
-        {
-            CommandInfoRepository.Instance.TryAddCommand(
-                ScrollToListBoxItem,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/listbox/scroll"));
-        }
-
         public ListBox(IWebElement element)
             : base(element)
         {

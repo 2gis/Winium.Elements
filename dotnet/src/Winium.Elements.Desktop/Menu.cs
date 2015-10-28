@@ -21,17 +21,6 @@
 
         #region Constructors and Destructors
 
-        static Menu()
-        {
-            CommandInfoRepository.Instance.TryAddCommand(
-                FindMenuItem,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/menu/item/{path}"));
-
-            CommandInfoRepository.Instance.TryAddCommand(
-                SelectMenuItem,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/menu/select/{path}"));
-        }
-
         public Menu(IWebElement element)
             : base(element)
         {

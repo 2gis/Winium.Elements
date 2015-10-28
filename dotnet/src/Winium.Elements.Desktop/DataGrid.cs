@@ -27,29 +27,6 @@
 
         #region Constructors and Destructors
 
-        static DataGrid()
-        {
-            CommandInfoRepository.Instance.TryAddCommand(
-                FindDataGridCell,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/cell/{row}/{column}"));
-
-            CommandInfoRepository.Instance.TryAddCommand(
-                GetDataGridColumnCount,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/column/count"));
-
-            CommandInfoRepository.Instance.TryAddCommand(
-                GetDataGridRowCount,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/row/count"));
-
-            CommandInfoRepository.Instance.TryAddCommand(
-                ScrollToDataGridCell,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/scroll/{row}/{column}"));
-
-            CommandInfoRepository.Instance.TryAddCommand(
-                SelectDataGridCell,
-                new CommandInfo("POST", "/session/{sessionId}/element/{id}/datagrid/select/{row}/{column}"));
-        }
-
         public DataGrid(IWebElement element)
             : base(element)
         {

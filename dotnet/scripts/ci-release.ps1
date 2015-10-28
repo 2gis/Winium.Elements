@@ -22,9 +22,6 @@ Update-Nuspec $nuspecPath $version $description -Verbose
 # Build
 Invoke-MSBuild $solution $msbuildProperties -Verbose
 
-# Test
-Invoke-NUnit $testFile -Verbose
-
 # Create nuget-package
 New-Item -ItemType directory -Path $releaseDir | Out-Null
 Invoke-NuGetPack $project $configuration $releaseDir -Verbose

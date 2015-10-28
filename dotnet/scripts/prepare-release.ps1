@@ -20,9 +20,6 @@ Pause
 # Build
 Invoke-MSBuild $solution $msbuildProperties -Verbose
 
-# Test
-Invoke-NUnit $testFile -Verbose
-
 # Create nuget-package
 Invoke-NuGetPack $project $configuration $releaseDir -Verbose
 
