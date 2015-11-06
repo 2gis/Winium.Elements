@@ -13,8 +13,6 @@ if ($LASTEXITCODE -ne 0)
     Exit $LASTEXITCODE
 }
 
-Copy-Item nunit-result.xml -Destination $root
-
 # Java
 cd $root\..\java\scripts
 & .\ci.ps1

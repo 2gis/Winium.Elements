@@ -46,8 +46,12 @@
     <Reference Include="System.Drawing">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.2.46.0\lib\net40\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver, Version=2.48.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.2.48.0\lib\net40\WebDriver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Winium.WebDriver, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Winium.WebDriver.0.1.0\lib\net45\Winium.WebDriver.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

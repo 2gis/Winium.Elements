@@ -10,7 +10,6 @@ $configuration = 'Release'
 $solutionDir = Join-Path $PSScriptRoot "../src"
 $solution = Join-Path $solutionDir 'Winium.Elements.sln'
 $project = Join-Path $solutionDir 'Winium.Elements.Desktop\Winium.Elements.Desktop.csproj'
-$testFile = Join-Path $solutionDir "Tests\Winium.Elements.Desktop.Tests\bin\$configuration\Winium.Elements.Desktop.Tests.dll"
 $releaseDir = Join-Path $PSScriptRoot '../Release'
 $assemblyInfoPath = Join-Path $solutionDir 'Winium.Elements.Desktop\Properties\AssemblyInfo.cs'
 $changelogPath = Join-Path $PSScriptRoot '..\CHANGELOG.md'
@@ -21,7 +20,7 @@ $msbuildProperties = @{
     'Configuration' = $configuration
 }
 
-$modulesUrl = 'https://raw.githubusercontent.com/skyline-gleb/dev-help/v0.1.0/psm'
+$modulesUrl = 'https://raw.githubusercontent.com/skyline-gleb/dev-help/v0.2.1/psm'
 
 if (!(Get-Module -ListAvailable -Name PsGet))
 {

@@ -2,7 +2,7 @@
 $ErrorActionPreference = 'Stop'
 #------------------------------
 
-Import-Module '.\setup.ps1' -Args (,('msbuild', 'nunit', 'nuget'))
+Import-Module '.\setup.ps1' -Args (,('msbuild', 'nuget'))
 
 if (Test-Path $releaseDir)
 {
@@ -20,12 +20,9 @@ Pause
 # Build
 Invoke-MSBuild $solution $msbuildProperties -Verbose
 
-# Test
-Invoke-NUnit $testFile -Verbose
-
 # Create nuget-package
 Invoke-NuGetPack $project $configuration $releaseDir -Verbose
 
 Write-Output "Publish NuGet package using nuget.exe push $releaseDir\*.nupkg"
-Write-Output "Add and push tag using git tag -a -m 'Version *.*.*' v*.*.*"
-Write-Output "Upload and attach $releaseDir\* files to release"
+#Write-Output "Add and push tag using git tag -a -m 'Version *.*.*' v*.*.*"
+#Write-Output "Upload and attach $releaseDir\* files to release"
