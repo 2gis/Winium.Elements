@@ -9,21 +9,28 @@
     <description>With the help of Winium.Elements you could simplify interaction
         with such complex elements like DataGrid, ComboBox, Menu and etc.</description>
     <licenses>
-        <license></license>
+        <license>
+            <name>Mozilla Public License, version 2.0</name>
+            <url>https://www.mozilla.org/en-US/MPL/2.0/</url>
+        </license>
     </licenses>
     <scm>
         <url>https://github.com/2gis/Winium.Elements/</url>
     </scm>
     <developers>
         <developer>
-            <name>Artem</name>
+            <name>Artem Pryanichnikov</name>
             <url>https://github.com/zebraxxl</url>
         </developer>
     </developers>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <groupId>com.github.2gis.winium</groupId>
     <artifactId>winium-elements-desktop</artifactId>
-    <version>0.1.0-1</version>
+    <version>0.2.0-1</version>
 
     <distributionManagement>
         <snapshotRepository>
@@ -36,7 +43,13 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>2.47.1</version>
+            <version>2.48.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.2gis.winium</groupId>
+            <artifactId>winium-web-driver</artifactId>
+            <version>0.1.0-1</version>
         </dependency>
 
         <dependency>
