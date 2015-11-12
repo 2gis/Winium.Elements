@@ -21,5 +21,3 @@ if ($LASTEXITCODE -ne 0)
     Write-Output "Java build failed. See console output"
     Exit $LASTEXITCODE
 }
-
-Copy-Item ..\target\surefire-reports\*.xml -Destination $root

@@ -15,10 +15,10 @@ else
 
 $projectDir = Join-Path $PSScriptRoot "../"
 
-# Compile & Test
-& $mvnPath -f $projectDir test
+# Compile
+& $mvnPath -f $projectDir compile
 if ($LASTEXITCODE -ne 0)
 {
-    Write-Output "Compile or test failed. See output"
+    Write-Output "Compile failed. See output"
     Exit $LASTEXITCODE
 }
