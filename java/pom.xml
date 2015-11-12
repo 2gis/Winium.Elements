@@ -4,6 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.github.2gis.winium</groupId>
+    <artifactId>winium-elements-desktop</artifactId>
+    <version>0.2.0-1</version>
+
     <name>Winium.Elements.Desktop</name>
     <url>https://github.com/2gis/Winium.Elements/tree/master/java</url>
     <description>With the help of Winium.Elements you could simplify interaction
@@ -27,10 +31,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <groupId>com.github.2gis.winium</groupId>
-    <artifactId>winium-elements-desktop</artifactId>
-    <version>0.2.0-1</version>
 
     <distributionManagement>
         <snapshotRepository>
