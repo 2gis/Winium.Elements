@@ -18,16 +18,11 @@ With the help of Winium.Elements you could simplify interaction with such comple
         <dependency>
             <groupId>com.github.2gis.winium</groupId>
             <artifactId>winium-elements-desktop</artifactId>
-            <version>0.1.0-1</version>
+            <version>0.2.0-1</version>
         </dependency>
     </dependencies>
     ```
-2. Use WiniumDriver instead of RemoteWebDriver.
-
-    ```java
-    WiniumDriver driver = new WiniumDriver("http://localhost:9999", desiredCapabilities);
-    ```
-3. Find element and convert it to [ElementType] using WebElementExtensions.to[ElementType] method.
+2. Find element and convert it to [ElementType] using WebElementExtensions.to[ElementType] method.
     
     ```java
     WebElement element = driver.findElementById("data_grid");
